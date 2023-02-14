@@ -1,0 +1,12 @@
+doctype html
+head
+  title reCAPTCHA v2 Example
+  script(src='https://www.google.com/recaptcha/api.js' async='' defer='')
+  script.
+    function enableSubmit() {
+    var submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = false;
+    }
+form(action='/submit-form' method='POST')
+  .g-recaptcha(data-sitekey= recaptchSiteKey data-callback='enableSubmit')
+  button#submitBtn(type='submit' disabled='') Submit
